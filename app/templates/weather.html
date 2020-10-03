@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<style>
+    .weather-table {
+        border: 5px #000;
+    }
+    .city-name {
+        padding: 10px;
+        font-weight: 300;
+    }
+    .temperature {
+        font-weight: 600;
+        padding-left: 20px;
+    }
+    .condition-icon {
+        width: 25px;
+        padding-left: 20px;
+    }
+    body {
+        font-family: 'Montserrat', sans-serif;
+    }
+</style>
+
+<body>
+<h1>Weather in Czech Republic</h1>
+    <table class="weather-table">
+        {% for item in city_list %}
+            <tr>
+                <td class="city-name">{{ item.name }}</td>
+                <td class="temperature">{{ item.temperature }}</td>
+                <td class="condition-icon">{% autoescape off %}{{ item.svg }}{% endautoescape %}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

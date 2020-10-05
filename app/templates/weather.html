@@ -26,15 +26,17 @@
 </style>
 
 <body>
+{% autoescape off %}
 <h1>Weather in Czech Republic</h1>
     <table class="weather-table">
         {% for item in city_list %}
             <tr>
                 <td class="city-name">{{ item.name }}</td>
                 <td class="temperature">{{ item.temperature }}</td>
-                <td class="condition-icon">{% autoescape off %}{{ item.svg }}{% endautoescape %}</td>
+                <td class="condition-icon">{{ item.svg }}</td>
             </tr>
         {% endfor %}
     </table>
+{% endautoescape %}
 </body>
 </html>
